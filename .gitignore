@@ -19,3 +19,9 @@
 *.exe
 *.out
 *.app
+
+Debug/
+Release/
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj
