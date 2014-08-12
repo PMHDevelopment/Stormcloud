@@ -9,7 +9,6 @@ namespace Stormcloud {
 	{
 	public:
 		Camera(glm::mat4* per, glm::vec2 rot = glm::vec2(), glm::vec3 pos = glm::vec3());
-		~Camera();
 		glm::mat4 getViewMatrix();
 		glm::mat4 calculateViewMatrix(bool negateY = false);
 		glm::vec2 Rotation;
