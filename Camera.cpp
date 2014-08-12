@@ -1,5 +1,6 @@
 #include "Camera.h"
 
+using namespace Stormcloud;
 
 Camera::Camera(glm::mat4* per, glm::vec2 rot, glm::vec3 pos)
 {
