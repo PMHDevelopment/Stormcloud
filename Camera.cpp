@@ -21,13 +21,13 @@ glm::vec3 Camera::sphericalToCartesian(bool negateY) {
 		cos(Rotation.y) * cos(Rotation.x));
 }
 
-glm::mat4 Camera::calculateViewMatrix(bool negateY) {
+glm::mat4 Camera::calculateViewMatrix() {
 	direction = glm::vec3(
 		cos(Rotation.y) * sin(Rotation.x),
-		0,
+		sin(Rotation.y),
 		cos(Rotation.y) * cos(Rotation.x));
 
-	glm::vec3 right = glm::vec3(
+	right = glm::vec3(
 		sin(Rotation.x - 3.14f / 2.0f),
 		0,
 		cos(Rotation.x - 3.14f / 2.0f)
@@ -35,8 +35,12 @@ glm::mat4 Camera::calculateViewMatrix(bool negateY) {
 
 	glm::vec3 up = glm::cross(right, direction);
 
-	viewMatrix = glm::lookAt(Position, Position + sphericalToCartesian(negateY), up);
+	viewMatrix = glm::lookAt(Position, Position + direction, up);
 	return viewMatrix;
+}
+
+glm::vec3 Camera::getRightVector() {
+	return right;
 }
 
 glm::mat4 Camera::getViewMatrix() {
