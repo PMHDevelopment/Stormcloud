@@ -1,5 +1,4 @@
-#include <glload\gl_3_3.h>
-#include <glload\gl_load.hpp>
+#include <GL\glew.h>
 #include <string>
 #include <fstream>
 #include <vector>

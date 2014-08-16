@@ -13,11 +13,12 @@ glm::vec3 Camera::sphericalToCartesian(bool negateY) {
 	if (negateY)
 		return glm::vec3(
 		cos(Rotation.y) * sin(Rotation.x),
-		sin(Rotation.y),
+		0,
 		cos(Rotation.y) * cos(Rotation.x));
+	
 	return glm::vec3(
 		cos(Rotation.y) * sin(Rotation.x),
-		0,
+		sin(Rotation.y),
 		cos(Rotation.y) * cos(Rotation.x));
 }
 

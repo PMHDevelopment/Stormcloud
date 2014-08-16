@@ -1,7 +1,6 @@
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-#include <glload\gl_3_3.h>
-#include <glload\gl_load.hpp>
+#include <GL\glew.h>
 #include <GLFW\glfw3.h>
 namespace Stormcloud {
 	#pragma once

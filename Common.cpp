@@ -58,7 +58,7 @@ GLuint Common::createProgram(const std::vector<GLuint> &shaderList) {
 	return program;
 
 }
-
+//Hey
 std::string Common::LoadFile(const char *file) {
 	std::ifstream in;
 	in.open(file);
@@ -71,9 +71,14 @@ GLFWwindow* Common::createWindow(int width, int height, const char* title, GLFWm
 	if (!window){ glfwTerminate(); return NULL; } //Window not created so exit.
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
-	if (!glload::LoadFunctions()) { //Load OpenGL functions
-		return NULL;
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
 	}
+	fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 	return window;
 }
 
@@ -85,8 +90,13 @@ GLFWwindow* Common::initAndCreateWindow(int width, int height, const char* title
 
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
-	if (!glload::LoadFunctions()) { //Load OpenGL functions
-		return NULL;
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
 	}
+	fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 	return window;
 }
